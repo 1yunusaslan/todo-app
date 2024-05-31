@@ -27,13 +27,13 @@ h1{
     color: rgb(83, 27, 136);
 }
 
-.input input {
+.form input {
     width: 80%;
     height: 30px;
     border-color: blueviolet;
 }
 
-.input button{
+.form button{
     width: 15%;
     height: 35px;
     border-radius: 10%;
@@ -50,7 +50,7 @@ h1{
     overflow: overlay;
 }
 
-.todos-item-layout{
+.todos__item-layout{
     display: flex;
     flex-direction: row;
     margin-top: 10px;
@@ -78,12 +78,12 @@ h1{
     margin-right: 5px;
 }
 
-.todo-complete-p{
+.todo__complete-p{
     opacity: 0.5;
     text-decoration: line-through;
 }
 
-.todo-p{
+.todos__p{
     display: flex;
     align-items: center;
     margin: 8px 0;

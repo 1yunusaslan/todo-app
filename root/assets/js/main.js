@@ -1,5 +1,5 @@
-const addButton = document.getElementById("button-add");
-const inputValue = document.getElementById("input-value");
+const addButton = document.getElementById("form__button");
+const inputValue = document.getElementById("form__input");
 
 
 
@@ -10,12 +10,12 @@ const renderTodoItem = (todoText) => {
 
     const todoItem = document.createElement("p");
     todoItem.innerText=todoText;
-    todoItem.classList.add('todo-p');
+    todoItem.classList.add('todos__p');
 
     const completeButton = document.createElement("button");
     completeButton.innerText= "Complete";
     completeButton.addEventListener('click', () =>{
-        todoItem.classList.add('todo-complete-p');
+        todoItem.classList.add('todo__complete-p');
     });
     completeButton.classList.add('completeButton');
 
@@ -29,7 +29,7 @@ const renderTodoItem = (todoText) => {
 
 
     const layoutDiv = document.createElement("div");
-    layoutDiv.classList.add('todos-item-layout');
+    layoutDiv.classList.add('todos__item-layout');
 
    
     layoutDiv.appendChild(completeButton);
