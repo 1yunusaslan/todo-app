@@ -1,0 +1,105 @@
+body{
+    background-color: blueviolet;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: auto;
+    min-height: 420px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 5%;
+}
+
+h1{
+    color: rgb(83, 27, 136);
+}
+
+.input input {
+    width: 80%;
+    height: 30px;
+    border-color: blueviolet;
+}
+
+.input button{
+    width: 15%;
+    height: 35px;
+    border-radius: 10%;
+    color: white;
+    background-color: blueviolet;
+    border-color: white;
+    cursor: pointer;
+}
+
+.todosContainer{
+    display: flex;
+    flex-direction: column; 
+    height: 300px;
+    overflow: overlay;
+}
+
+.todos-item-layout{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.completeButton{
+    width: 15%;
+    height: 35px;
+    border-radius: 10%;
+    color: white;
+    background-color: blueviolet;
+    border-color: white;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.deleteButton{
+    width: 15%;
+    height: 35px;
+    border-radius: 10%;
+    color: white;
+    background-color: blueviolet;
+    border-color: white;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.todo-complete-p{
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.todo-p{
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+
+.todosContainer::-webkit-scrollbar-track{
+    background-color: blueviolet;
+    border-radius: 20px;
+}
+
+.todosContainer::-webkit-scrollbar{
+    width: 7px;
+}
+
+.todosContainer::-webkit-scrollbar-thumb{
+    background-color: rgb(51, 29, 71);
+    border-radius: 20px;
+}
