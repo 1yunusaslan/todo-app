@@ -1,5 +1,27 @@
 const addButton = document.getElementById("form__button");
 const inputValue = document.getElementById("form__input");
+const form = document.getElementById("form");
+
+form.addEventListener("click",(event)=>{
+
+if(event.target.id=="form__input"){
+    clickEvenetListener(event.target.id);
+}
+else if(event.target.id=="form__button"){
+    clickEvenetListener(event.target.id);
+}
+else if(event.target.id=="todosContainer"){
+    clickEvenetListener(event.target.id);
+}
+else if (event.target.classList=="todos__p"){
+    clickEvenetListener(event.target.innerText);
+}
+})
+
+function clickEvenetListener(event) {  
+    console.log(event + " Click");
+}
+
 
 const todoDiv = document.getElementById("todosContainer");
 const renderTodoItem = (todoText) => {
@@ -52,18 +74,4 @@ addButton.addEventListener("click", () =>{
 
 });
 
-function focusFunction() {
-    inputValue.style.backgroundColor = "blueviolet";
-    inputValue.style.color="white";
-}
-
-function blurFunction() {
-    inputValue.style.backgroundColor = "white";
-    inputValue.style.color="black";
-}
-
-function textColor(){
-    inputValue.style.color="black";
-}
-inputValue.addEventListener("click",textColor);
 
