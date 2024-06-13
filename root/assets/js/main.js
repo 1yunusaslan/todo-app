@@ -1,39 +1,18 @@
 const addButton = document.getElementById("form__button");
 const inputValue = document.getElementById("form__input");
 
-
-
-
 const todoDiv = document.getElementById("todosContainer");
 const renderTodoItem = (todoText) => {
     
-
     const todoItem = document.createElement("p");
     todoItem.innerText=todoText;
     todoItem.classList.add('todos__p');
 
-    const completeButton = document.createElement("button");
-    completeButton.innerText= "Complete";
-    completeButton.addEventListener('click', () =>{
-        todoItem.classList.add('todo__complete-p');
-    });
-    completeButton.classList.add('completeButton');
-
-    const deleteButton = document.createElement("button");
-    deleteButton.innerText= "Delete";
-    deleteButton.classList.add('deleteButton');
-
-    deleteButton.addEventListener('click',() =>{
-        todoDiv.removeChild(layoutDiv);
-    })
 
 
     const layoutDiv = document.createElement("div");
     layoutDiv.classList.add('todos__item-layout');
 
-   
-    layoutDiv.appendChild(completeButton);
-    layoutDiv.appendChild(deleteButton);
     layoutDiv.appendChild(todoItem);
 
     todoDiv.appendChild(layoutDiv);
@@ -41,11 +20,50 @@ const renderTodoItem = (todoText) => {
     inputValue.value ="";
 }
 
+const renderAllTodoItems = () => {
+    //todoDiv.innerHTML = ""; // mevcut elemanları temizler
+    dizi.forEach(item => {
+        renderTodoItem(item);
+    });
+};
+
+const dizi =[];
 addButton.addEventListener("click", () =>{
     if(inputValue.value === ""){
-        alert("Input boş bırakılamaz.");
+    alert("Input boş bırakılamaz.");
+    }
+    else if(inputValue.value === "json"){
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        //.then(json => console.log(json));
+        .then(
+              json =>{
+                  
+                  for (let index = 0; index < json.length; index++) {
+                      dizi.push(json[index].name);
+                  }
+                  renderAllTodoItems(dizi);
+              }
+        )  
     }
     else{
         renderTodoItem(inputValue.value);
     }
+
 });
+
+function focusFunction() {
+    inputValue.style.backgroundColor = "blueviolet";
+    inputValue.style.color="white";
+}
+
+function blurFunction() {
+    inputValue.style.backgroundColor = "white";
+    inputValue.style.color="black";
+}
+
+function textColor(){
+    inputValue.style.color="black";
+}
+inputValue.addEventListener("click",textColor);
+

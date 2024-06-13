@@ -11,8 +11,8 @@
     <div class="container">
         <div class="main">
             <h1>To-Do List</h1>
-            <div class="form">
-                <input type="text" id="form__input">
+            <div class="form" id="form">
+                <input type="text" id="form__input" onfocus="focusFunction()" onblur="blurFunction()">
                 <button id="form__button">Add</button>
             </div>
             <div class="todosContainer" id="todosContainer">
