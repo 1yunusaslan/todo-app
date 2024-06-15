@@ -5,20 +5,20 @@ const form = document.getElementById("form");
 form.addEventListener("click",(event)=>{
 
 if(event.target.id=="form__input"){
-    clickEvenetListener(event.target.id);
+    clickEventListener(event.target.id);
 }
 else if(event.target.id=="form__button"){
-    clickEvenetListener(event.target.id);
+    clickEventListener(event.target.id);
 }
 else if(event.target.id=="todosContainer"){
-    clickEvenetListener(event.target.id);
+    clickEventListener(event.target.id);
 }
 else if (event.target.classList=="todos__p"){
-    clickEvenetListener(event.target.innerText);
+    clickEventListener(event.target.innerText);
 }
 })
 
-function clickEvenetListener(event) {  
+function clickEventListener(event) {  
     console.log(event + " Click");
 }
 
@@ -54,24 +54,27 @@ addButton.addEventListener("click", () =>{
     if(inputValue.value === ""){
     alert("Input boş bırakılamaz.");
     }
-    else if(inputValue.value === "json"){
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        //.then(json => console.log(json));
-        .then(
-              json =>{
-                  
-                  for (let index = 0; index < json.length; index++) {
-                      dizi.push(json[index].name);
-                  }
-                  renderAllTodoItems(dizi);
-              }
-        )  
-    }
     else{
-        renderTodoItem(inputValue.value);
+      const deneme = dizi.push(inputValue.value);
+      renderAllTodoItems(deneme);
     }
 
 });
 
 
+function firstOpenPageRender (){
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    //.then(json => console.log(json));
+    .then(
+          json =>{
+              
+              for (let index = 0; index < json.length; index++) {
+                  dizi.push(json[index].name);
+              }
+              renderAllTodoItems(dizi);
+          }
+    )  
+
+}
+firstOpenPageRender();
