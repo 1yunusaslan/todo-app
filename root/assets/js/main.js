@@ -1,6 +1,6 @@
 const addButton = document.getElementById("form__button");
 const inputValue = document.getElementById("form__input");
-
+const form = document.getElementById("form");
 
 form.addEventListener("click",(event)=>{
     const clickedElement = event.target;
@@ -53,21 +53,13 @@ const renderTodoItem = (todoText) =>  {
 
     deleteButton.addEventListener('click',() =>{
         todoDiv.removeChild(layoutDiv);
-    })
+    
 
         todoItem.style.opacity="0.5";
         todoItem.style.textDecoration="line-through";
-    };
+    });
+
     completeButton.classList.add('completeButton');
-
-
-    const deleteButton = document.createElement("button");
-    deleteButton.innerText= "Delete";
-    deleteButton.classList.add('deleteButton');
-
-    deleteButton.addEventListener('click',() =>{
-        todoDiv.removeChild(layoutDiv);
-    })
 
     const layoutDiv = document.createElement("div");
     layoutDiv.classList.add('todos__item-layout');
@@ -80,7 +72,7 @@ const renderTodoItem = (todoText) =>  {
     todoDiv.prepend(layoutDiv);
 
     inputValue.value ="";
-
+}
 
 const renderAllTodoItems = () => {
     dizi.forEach(item => {
